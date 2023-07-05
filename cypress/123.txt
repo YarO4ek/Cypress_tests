@@ -1,0 +1,12 @@
+describe('Case details tests : C71,63', () => {
+    let user;
+    let links;
+
+    before(() =>{
+        cy.fixture('user').then((regdata)=>{
+        user = regdata;
+    });
+    cy.fixture('links').then((ref) =>{
+        link= ref;
+        });
+    };
