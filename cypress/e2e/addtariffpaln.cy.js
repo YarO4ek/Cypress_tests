@@ -1,8 +1,10 @@
 describe("", () =>{
+    beforeEach(() =>{
+        cy.log('open page');
+        cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
+    })
 
     it.skip('Check logo button', () =>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php')
         cy.get('[class="left"]')
             .should('be.visible')
             .click()
@@ -28,8 +30,7 @@ describe("", () =>{
 
     })
     it.skip("- check add tariff plane", () =>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
+
         cy.datas('#rental1', 'as')
         cy.datas('#local_minutes', 'ta')
         cy.datas('#inter_minutes', 'la')
@@ -42,8 +43,7 @@ describe("", () =>{
             .click()
     })
     it.skip("- check button reset", () =>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
+
         cy.datas('#rental1', '10')
         cy.datas('#local_minutes', '10')
         cy.datas('#inter_minutes', '10')
@@ -54,8 +54,7 @@ describe("", () =>{
         cy.resetbutton('https://demo.guru99.com/telecom/addtariffplans.php')
     })
     it.skip("- check textbox with empty fields", () =>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
+
         cy.datas('#rental1', ' ')
         cy.datas('#local_minutes', ' ')
         cy.datas('#inter_minutes', ' ')
@@ -68,8 +67,7 @@ describe("", () =>{
             .click()
     })
     it.skip("check textbox with boundary values", () =>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
+
         cy.datas('#rental1', '999999')
         cy.datas('#local_minutes', '999999')
         cy.datas('#inter_minutes', '999999')
@@ -83,8 +81,7 @@ describe("", () =>{
     })
 
     it.skip("check textbox with special characters", () =>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
+
         cy.datas('#rental1', '-999')
         cy.datas('#local_minutes', ',399')
         cy.datas('#inter_minutes', ',999')
@@ -97,8 +94,7 @@ describe("", () =>{
             .click()
     })
     it.skip("check textbox with letters and numbers", () =>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
+
         cy.datas('#rental1', 'a9bc')
         cy.datas('#local_minutes', 'ab9c')
         cy.datas('#inter_minutes', 'dfq9')

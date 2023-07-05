@@ -1,15 +1,17 @@
 describe("UIcheck", () => {
-    it.skip("test first page header", () => {
+    beforeEach(()=>{
         cy.log('open page');
         cy.visit('https://demo.guru99.com/payment-gateway/index.php')
+    })
+
+    it.skip("test first page header", () => {
+
         cy.paymentheader('Cart', 'https://demo.guru99.com/payment-gateway/purchasetoy.php')
         cy.paymentheader('Check Credit Card Limit','https://demo.guru99.com/payment-gateway/check_credit_balance.php')
         cy.paymentheader('Generate Card Number','https://demo.guru99.com/payment-gateway/cardnumber.php')
     })
     it.skip("test first page ", () => {
-        cy.log('open page');
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/payment-gateway/index.php')
+
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -17,8 +19,7 @@ describe("UIcheck", () => {
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
     it.skip(" + test payment process ", () => {
-        cy.log('open first page');
-        cy.visit('https://demo.guru99.com/payment-gateway/index.php')
+
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -62,8 +63,6 @@ describe("UIcheck", () => {
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/genearte_orderid.php?uid=174160');
     })
     it.skip(" - test  CVV with 4 numbers", () => {
-        cy.log('open first page');
-        cy.visit('https://demo.guru99.com/payment-gateway/index.php')
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -80,8 +79,7 @@ describe("UIcheck", () => {
             .click()
     })
     it.skip(" - test without CVV ", () => {
-        cy.log('open first page');
-        cy.visit('https://demo.guru99.com/payment-gateway/index.php')
+
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -99,8 +97,7 @@ describe("UIcheck", () => {
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/genearte_orderid.php?uid=174160');
     })
     it.skip(" - test with all empty fields ", () => {
-        cy.log('open first page');
-        cy.visit('https://demo.guru99.com/payment-gateway/index.php')
+
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -118,8 +115,7 @@ describe("UIcheck", () => {
         cy.url().should('eq' ,'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
     it.skip(" - test  add fields letters ", () => {
-        cy.log('open first page');
-        cy.visit('https://demo.guru99.com/payment-gateway/index.php')
+
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -136,9 +132,8 @@ describe("UIcheck", () => {
             .click()
         cy.url().should('eq' ,'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
-    it("test payment successful page ", () => {
-        cy.log('open first page');
-        cy.visit('https://demo.guru99.com/payment-gateway/index.php')
+    it.skip("test payment successful page ", () => {
+
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -158,5 +153,69 @@ describe("UIcheck", () => {
         cy.url().should('eq' ,'https://demo.guru99.com/payment-gateway/purchasetoy.php');
 
         })
+    it.skip("test quantity",() =>{
+        cy.get('[name="quantity"]').select('1');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('2');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('3');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('4');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('5');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('6');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('7');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('8');
+        cy.wait(1000);
+        cy.get('[name="quantity"]').select('9');
+        cy.wait(1000);
+    })
+    it("test check card year and mont",() =>{
+        cy.get('[value="Buy Now"]')
+            .click()
+        cy.get('#month').select('Month');
+        cy.get('#year').select('Year');
+        cy.wait(1000);
+        cy.get('#year').select('2017');
+        cy.get('#month').select('1');
+        cy.wait(1000);
+        cy.get('#year').select('2018');
+        cy.get('#month').select('2');
+        cy.wait(1000);
+        cy.get('#year').select('2019');
+        cy.get('#month').select('3');
+        cy.wait(1000);
+        cy.get('#year').select('2020');
+        cy.get('#month').select('4');
+        cy.wait(1000);
+        cy.get('#year').select('2021');
+        cy.get('#month').select('5');
+        cy.wait(1000);
+        cy.get('#year').select('2022');
+        cy.get('#month').select('6');
+        cy.wait(1000);
+        cy.get('#year').select('2023');
+        cy.get('#month').select('7');
+        cy.wait(1000);
+        cy.get('#year').select('2024');
+        cy.get('#month').select('8');
+        cy.wait(1000);
+        cy.get('#year').select('2025');
+        cy.get('#month').select('9');
+        cy.wait(1000);
+        cy.get('#year').select('2026');
+        cy.get('#month').select('10');
+        cy.wait(1000);
+        cy.get('#year').select('2027');
+        cy.get('#month').select('11');
+        cy.wait(1000);
+        cy.get('#year').select('2028');
+        cy.get('#month').select('12');
+        cy.wait(1000);
+
+    })
 
 });

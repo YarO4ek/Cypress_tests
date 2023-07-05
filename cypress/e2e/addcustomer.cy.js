@@ -1,19 +1,22 @@
 let user;
 
 describe("UIcheck", () => {
+    beforeEach(() =>{
+        cy.log("open page")
+        cy.visit('https://demo.guru99.com/telecom/addcustomer.php');
+
+    })
 
 
     it("header", () => {
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php')
+
         cy.header('Testing', 'https://www.guru99.com/software-testing.html')
         cy.header('Selenium', 'https://www.guru99.com/selenium-tutorial.html')
         cy.header('Live Project', 'https://www.guru99.com/live-projects.html')
         cy.header('Java', 'https://www.guru99.com/java-tutorial.html')
     })
      it("Dropdown", () => {
-         cy.log("open page")
-         cy.visit('https://demo.guru99.com/telecom/addcustomer.php');
+
          cy.log('navigation bar check');
          cy.Dropdawn('Selenium ', 'Flash Movie Demo', '../../test/flash-testing.html', 'https://demo.guru99.com/test/flash-testing.html')
          cy.Dropdawn('Selenium ', 'Radio & Checkbox Demo', '../../test/radio.html', 'https://demo.guru99.com/test/radio.html')
@@ -37,8 +40,7 @@ describe("UIcheck", () => {
          cy.Dropdawn('Selenium ', 'Selenium DatePicker Demo', '../../test/', 'https://demo.guru99.com/test/')
      })
     it("navigation bar", () => {
-        cy.log("open page")
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php');
+
         cy.log('navigation bar check');
         cy.getNavi('Insurance Project', 'http://demo.guru99.com/insurance/v1/index.php');
         cy.getNavi('Agile Project', 'http://demo.guru99.com/Agile_Project/Agi_V1/')
@@ -49,8 +51,7 @@ describe("UIcheck", () => {
         cy.getNavi('New Tours', 'http://demo.guru99.com/test/newtours/')
     })
     it("Dropdown SEO", () => {
-        cy.log("open page")
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php');
+
         cy.log('navigation bar check');
          cy.Dropdawn('SEO ', 'Page-1','http://demo.guru99.com/seo/page-1.html')
          cy.Dropdawn('SEO ', 'Page-2','http://demo.guru99.com/seo/page-2.html')
@@ -62,8 +63,7 @@ describe("UIcheck", () => {
      })
 
     it("+ Case with done",()=> {
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php')
+
         cy.get('[class="left"]')
             .should('be.visible')
             .click()
@@ -90,8 +90,6 @@ describe("UIcheck", () => {
 
     })
     it("+ Case with pending",()=>{
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php')
 
         cy.get('[for="pending"]')
             .should('be.visible')
@@ -114,8 +112,7 @@ describe("UIcheck", () => {
             .click();
     })
     it("- Case for Reset button",()=> {
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php')
+
         cy.get('[for="done"]')
             .should('be.visible')
             .click()
@@ -127,8 +124,7 @@ describe("UIcheck", () => {
         cy.resetbutton('https://demo.guru99.com/telecom/addcustomer.php')
     })
     it("- Case for radiobutton",()=> {
-        cy.log('open page');
-        cy.visit('https://demo.guru99.com/telecom/addcustomer.php')
+
         cy.datas('#fname', 'Yar')
         cy.datas('#lname', 'Mas')
         cy.datas('#email', 'yar@gmail.com')
