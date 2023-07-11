@@ -1,3 +1,6 @@
+import chaiColors from 'chai-colors'
+chai.use(chaiColors)
+
 describe("", () =>{
     beforeEach(() =>{
         cy.log('open page');
@@ -32,12 +35,26 @@ describe("", () =>{
     it.skip("- check add tariff plane", () =>{
 
         cy.datas('#rental1', 'as')
+        cy.get('#message2')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#local_minutes', 'ta')
+        cy.get('#message3')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#inter_minutes', 'la')
+        cy.get('#message4')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#sms_pack', 'vi')
+        cy.get('#message5')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#minutes_charges', 'sta')
+        cy.get('#message6')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#inter_charges', 'ba')
+        cy.get('#message7')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#sms_charges', 'be')
+        cy.get('#message8')
+            .should('have.text', 'Characters are not allowed');
         cy.get('[name="submit"]')
             .should('be.visible')
             .click()
@@ -82,13 +99,27 @@ describe("", () =>{
 
     it.skip("check textbox with special characters", () =>{
 
-        cy.datas('#rental1', '-999')
-        cy.datas('#local_minutes', ',399')
-        cy.datas('#inter_minutes', ',999')
-        cy.datas('#sms_pack', ',99')
-        cy.datas('#minutes_charges', ',0')
-        cy.datas('#inter_charges', '+1')
-        cy.datas('#sms_charges', '+2')
+        cy.datas('#rental1', '-')
+        cy.get('#message2')
+            .should('have.text', 'Special characters are not allowed');
+        cy.datas('#local_minutes', '-')
+        cy.get('#message3')
+            .should('have.text', 'Special characters are not allowed');
+        cy.datas('#inter_minutes', ',')
+        cy.get('#message4')
+            .should('have.text', 'Special characters are not allowed');
+        cy.datas('#sms_pack', ',')
+        cy.get('#message5')
+            .should('have.text', 'Special characters are not allowed');
+        cy.datas('#minutes_charges', ',')
+        cy.get('#message6')
+            .should('have.text', 'Special characters are not allowed');
+        cy.datas('#inter_charges', '+')
+        cy.get('#message7')
+            .should('have.text', 'Special characters are not allowed');
+        cy.datas('#sms_charges', '+')
+        cy.get('#message8')
+            .should('have.text', 'Special characters are not allowed');
         cy.get('[name="submit"]')
             .should('be.visible')
             .click()
@@ -106,6 +137,126 @@ describe("", () =>{
             .should('be.visible')
             .click()
     })
+
+    it.skip('Blank fields and alert', () => {
+
+        cy.get('input[type="submit"]')
+            .should('be.visible')
+            .click()
+        cy.on('window:alert', (txt) => {
+            expect(txt).to.equal('please fill all fields Correct Value');
+        })
+    })
+
+
+    it.skip ('check text fields  and  correct placeholder', () => {
+        cy.get('#rental1')
+            .should('have.attr', 'placeholder', 'Monthly Rental')
+            .should('be.visible');
+        cy.get('#local_minutes')
+            .should('have.attr', 'placeholder', 'Free Local Minutes')
+            .should('be.visible');
+        cy.get('#inter_minutes')
+            .should('have.attr', 'placeholder', 'Free International Minutes')
+            .should('be.visible');
+        cy.get('#sms_pack')
+            .should('have.attr', 'placeholder', 'Free SMS Pack')
+            .should('be.visible');
+        cy.get('#minutes_charges')
+            .should('have.attr', 'placeholder', 'Local Per Minutes Charges')
+            .should('be.visible');
+        cy.get('#inter_charges')
+            .should('have.attr', 'placeholder', 'Inter. Per Minutes Charges')
+            .should('be.visible');
+        cy.get('#sms_charges')
+            .should('have.attr', 'placeholder', 'SMS Per Charges')
+            .should('be.visible');
+    })
+    it('color on the page', () =>{
+
+
+        cy.log("header color")
+        cy.get('[id="navbar-brand-centered"]')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#767d85');
+        cy.log("header words color")
+        cy.get('[class="dropdown-toggle"]')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+        cy.get('[class="dropdown"]').contains('Insurance Project')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+        cy.get('[class="dropdown"]').contains('Agile Project')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+        cy.get('[class="dropdown"]').contains('Bank Project')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+        cy.get('[class="dropdown"]').contains('Security Project')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+        cy.get('[class="dropdown"]').contains('Telecom Project')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+        cy.get('[class="dropdown"]').contains('Payment Gateway Project')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+        cy.get('[class="dropdown"]').contains('New Tours')
+            .should('be.visible')
+            .should('have.css', 'color').and('be.colored', '#fff');
+
+        cy.log("logo color")
+        cy.get('.left > .logo').contains('Guru99 telecom')
+            .should('be.visible')
+            .should('be.colored', '#f6755e');
+
+        cy.get('[class="align-center"]').contains('Add Tariff Plans')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#25a2c3');
+        cy.get('[class="3u 12u$(small)"]').contains('Monthly Rental')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#25a2c3');
+        cy.get('[class="3u 12u$(small)"]').contains('Free Local Minutes')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#25a2c3');
+        cy.get('[class="3u 12u$(small)"]').contains('Free International Minutes')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#25a2c3');
+        cy.get('[class="3u 12u$(small)"]').contains('Free SMS Pack')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#25a2c3');
+        cy.get('[class="3u 12u$(small)"]').contains('Local Per Minutes Charges')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#25a2c3');
+        cy.get('[class="3u 12u$(small)"]').contains('International Per Minutes Charges')
+            .should('be.visible')
+            .should('have.css', 'color').
+        and('be.colored', '#25a2c3');
+        cy.get('[class="3u 12u$(small)"]').contains('SMS Per Charges')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#25a2c3');
+        cy.get('[name="submit"]')
+            .should('be.visible')
+            .should('have.css', 'color')
+            .and('be.colored', '#ffffff',);
+        cy.get('[name="submit"]')
+            .should('be.visible')
+            .should('have.css',  'background-color')
+            .and('be.colored', '#f6755e');
+        cy.get('[value="Reset"]')
+            .should('be.visible')
+            .should('have.css',  'color')
+            .and('be.colored', '#727a82');
+
+    })
+
 
 
 

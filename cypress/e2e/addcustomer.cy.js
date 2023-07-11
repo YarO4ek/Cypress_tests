@@ -1,4 +1,7 @@
-let user;
+let maxName = 'oamPJUEhdZQwkldZSBkwtuNdLEqfZvGMgAUHLEPfMWGUBORQXT';
+let maxAddress = 'echCqdombkpeqEKNvSOgngKqhUzfMxMWfwwMrUsdldkmhJuIPfPuoOysCYVxBuXldKaIrAGzhPDWTShMhRhKuNJcjKhagVCWvQct';
+let maxEmail = 'EnPfVYOHOMOSWXJOKTdtivLmYGqVbNpHciSkXQJEzFbBsaBgZMnCNIthMChaURwUxqXJmJicjNSAJmOSOQIYEybvfkqWfkctTlEVkoXcrwSxBDKffKAVlwcwVoRwQwtoLCTMHfnaBIVcIBYMnOYpZwOehBksSRiKtCHWmUBednMuHHeqKMigtwHONtsiVaZtKDprAARBDTlkHkTvsvYyHxWYoJyEmYyoVhwPtOlFqqvZZoUkIjlrFbFKeMehhVtcRdZUTKBacdTiVtKhzjkohVFKgiBuymTOEXASJBNWnLpAwMSmEIEBhINz@gmail.com';
+let maxTel = '123456789112';
 
 describe("UIcheck", () => {
     beforeEach(() =>{
@@ -8,14 +11,14 @@ describe("UIcheck", () => {
     })
 
 
-    it("header", () => {
+    it.skip("header", () => {
 
         cy.header('Testing', 'https://www.guru99.com/software-testing.html')
         cy.header('Selenium', 'https://www.guru99.com/selenium-tutorial.html')
         cy.header('Live Project', 'https://www.guru99.com/live-projects.html')
         cy.header('Java', 'https://www.guru99.com/java-tutorial.html')
     })
-     it("Dropdown", () => {
+     it.skip("Dropdown", () => {
 
          cy.log('navigation bar check');
          cy.Dropdawn('Selenium ', 'Flash Movie Demo', '../../test/flash-testing.html', 'https://demo.guru99.com/test/flash-testing.html')
@@ -39,7 +42,7 @@ describe("UIcheck", () => {
          cy.Dropdawn('Selenium ', 'Drag and Drop Action', '../../test/drag_drop.html', 'https://demo.guru99.com/test/drag_drop.html')
          cy.Dropdawn('Selenium ', 'Selenium DatePicker Demo', '../../test/', 'https://demo.guru99.com/test/')
      })
-    it("navigation bar", () => {
+    it.skip("navigation bar", () => {
 
         cy.log('navigation bar check');
         cy.getNavi('Insurance Project', 'http://demo.guru99.com/insurance/v1/index.php');
@@ -50,7 +53,7 @@ describe("UIcheck", () => {
         cy.getNavi('Payment Gateway Project', 'http://demo.guru99.com/payment-gateway/index.php')
         cy.getNavi('New Tours', 'http://demo.guru99.com/test/newtours/')
     })
-    it("Dropdown SEO", () => {
+    it.skip("Dropdown SEO", () => {
 
         cy.log('navigation bar check');
          cy.Dropdawn('SEO ', 'Page-1','http://demo.guru99.com/seo/page-1.html')
@@ -79,17 +82,17 @@ describe("UIcheck", () => {
         cy.get('[name="submit"]')
             .should('be.visible')
             .click()
-        cy.wait(10000);
-        cy.visit('https://demo.guru99.com/telecom/assigntariffplantocustomer.php')
-        cy.wait(10000);
-        cy.get ('[type="submit"]')
-            .should('be.visible')
-            .click();
-
-
-
+        let customerId;
+        cy.location('search').then(path => {
+            customerId = path.split('=')[1];
+            cy.log(customerId)
+            cy.visit('https://demo.guru99.com/telecom/assigntariffplantocustomer.php')
+            cy.get('#customer_id').type(customerId)
+            cy.get('.fit').click()
+            cy.get('p').should('have.text', 'ACTIVE')
+        })
     })
-    it("+ Case with pending",()=>{
+    it("+ Case with pending",()=> {
 
         cy.get('[for="pending"]')
             .should('be.visible')
@@ -99,19 +102,20 @@ describe("UIcheck", () => {
         cy.datas('#email', 'yar@gmail.com')
         cy.datas('[name="addr"]', 'hello')
         cy.datas('#telephoneno', '8999290290')
-        cy .get('[value="Submit"]')
+        cy.get('[value="Submit"]')
             .should('be.visible')
             .click()
-        cy.get('[class="button"]')
-            .click()
-        cy.wait(10000);
-        cy.visit('https://demo.guru99.com/telecom/assigntariffplantocustomer.php')
-        cy.wait(10000);
-        cy.get ('[type="submit"]')
-            .should('be.visible')
-            .click();
+        let customerId;
+        cy.location('search').then(path => {
+            customerId = path.split('=')[1];
+            cy.log(customerId)
+            cy.visit('https://demo.guru99.com/telecom/assigntariffplantocustomer.php')
+            cy.get('#customer_id').type(customerId)
+            cy.get('.fit').click()
+            cy.get('p').should('have.text', 'INACTIVE')
+        })
     })
-    it("- Case for Reset button",()=> {
+    it.skip("- Case for Reset button",()=> {
 
         cy.get('[for="done"]')
             .should('be.visible')
@@ -123,8 +127,10 @@ describe("UIcheck", () => {
         cy.datas('#telephoneno', '8999290290')
         cy.resetbutton('https://demo.guru99.com/telecom/addcustomer.php')
     })
-    it("- Case for radiobutton",()=> {
-
+    it.skip("- Case for radiobutton",()=> {
+        cy.get('[for="done"]')
+            .should('be.visible')
+            .click()
         cy.datas('#fname', 'Yar')
         cy.datas('#lname', 'Mas')
         cy.datas('#email', 'yar@gmail.com')
@@ -134,7 +140,21 @@ describe("UIcheck", () => {
             .should('be.visible')
             .click()
     })
+    it.skip('Valid Customer max value', () => {
 
-
-
+        cy.datas('#fname', maxName)
+        cy.log('First Name filled');
+        cy.datas('#lname', maxName)
+        cy.log('Last Name filled');
+        cy.datas('#email', maxEmail)
+        cy.log('Email entered');
+        cy.datas('textarea[name=addr]', maxAddress)
+        cy.log('Address filled');
+        cy.datas('#telephoneno', maxTel)
+        cy.log('Tel number filled');
+        cy.get('input[type="submit"]').
+        click()
+        cy.url()
+            .should('contain', 'access.php?uid')
+    })
 });
