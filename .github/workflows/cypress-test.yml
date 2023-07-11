@@ -10,4 +10,5 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           start: npm start
-          
+          record: false
+          component: false
