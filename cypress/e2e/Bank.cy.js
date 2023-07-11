@@ -1,4 +1,4 @@
-describe("UIcheck", () => {
+describe("Bank check", () => {
     beforeEach(() => {
         cy.log('open page');
         cy.visit('https://demo.guru99.com/Agile_Project/Agi_V1/index.php')

@@ -1,7 +1,7 @@
 import chaiColors from 'chai-colors'
 chai.use(chaiColors)
 
-describe("", () =>{
+describe("add tariff plan check", () =>{
     beforeEach(() =>{
         cy.log('open page');
         cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
