@@ -1,10 +1,7 @@
-name: e2e-tests
-on:
-  push:
-    branches:
-      - main
+name: cypress-tests
+on: [push]
 jobs:
-  cypress-run:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
