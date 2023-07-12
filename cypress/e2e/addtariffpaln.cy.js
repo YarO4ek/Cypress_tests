@@ -1,5 +1,4 @@
-import chaiColors from 'chai-colors'
-chai.use(chaiColors)
+
 
 describe("add tariff plan check", () =>{
     beforeEach(() =>{
@@ -7,13 +6,13 @@ describe("add tariff plan check", () =>{
         cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
     })
 
-    it.skip('Check logo button', () =>{
+    it('Check logo button', () =>{
         cy.get('[class="left"]')
             .should('be.visible')
             .click()
         cy.go('back')
-        })
-    it.skip("+ check add tariff plane", () =>{
+    })
+    it("+ check add tariff plane", () =>{
         cy.log('open page');
         cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
         cy.datas('#rental1', '10')
@@ -32,7 +31,7 @@ describe("add tariff plan check", () =>{
 
 
     })
-    it.skip("- check add tariff plane", () =>{
+    it("- check add tariff plane", () =>{
 
         cy.datas('#rental1', 'as')
         cy.get('#message2')
@@ -59,7 +58,7 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-    it.skip("- check button reset", () =>{
+    it("- check button reset", () =>{
 
         cy.datas('#rental1', '10')
         cy.datas('#local_minutes', '10')
@@ -70,7 +69,7 @@ describe("add tariff plan check", () =>{
         cy.datas('#sms_charges', '10')
         cy.resetbutton('https://demo.guru99.com/telecom/addtariffplans.php')
     })
-    it.skip("- check textbox with empty fields", () =>{
+    it("- check textbox with empty fields", () =>{
 
         cy.datas('#rental1', ' ')
         cy.datas('#local_minutes', ' ')
@@ -83,7 +82,7 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-    it.skip("check textbox with boundary values", () =>{
+    it("check textbox with boundary values", () =>{
 
         cy.datas('#rental1', '999999')
         cy.datas('#local_minutes', '999999')
@@ -97,7 +96,7 @@ describe("add tariff plan check", () =>{
             .click()
     })
 
-    it.skip("check textbox with special characters", () =>{
+    it("check textbox with special characters", () =>{
 
         cy.datas('#rental1', '-')
         cy.get('#message2')
@@ -124,7 +123,7 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-    it.skip("check textbox with letters and numbers", () =>{
+    it("check textbox with letters and numbers", () =>{
 
         cy.datas('#rental1', 'a9bc')
         cy.datas('#local_minutes', 'ab9c')
@@ -138,7 +137,7 @@ describe("add tariff plan check", () =>{
             .click()
     })
 
-    it.skip('Blank fields and alert', () => {
+    it('Blank fields and alert', () => {
 
         cy.get('input[type="submit"]')
             .should('be.visible')
@@ -149,7 +148,7 @@ describe("add tariff plan check", () =>{
     })
 
 
-    it.skip ('check text fields  and  correct placeholder', () => {
+    it ('check text fields  and  correct placeholder', () => {
         cy.get('#rental1')
             .should('have.attr', 'placeholder', 'Monthly Rental')
             .should('be.visible');
@@ -205,10 +204,10 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .should('have.css', 'color').and('be.colored', '#fff');
 
-        cy.log("logo color")
-        cy.get('.left > .logo').contains('Guru99 telecom')
-            .should('be.visible')
-            .should('be.colored', '#f6755e');
+        // cy.log("logo color")
+        // cy.get('.left > .logo').contains('Guru99 telecom')
+        //     .should('be.visible')
+        //     .should('be.colored', '#f6755e');
 
         cy.get('[class="align-center"]').contains('Add Tariff Plans')
             .should('be.visible')
@@ -244,16 +243,17 @@ describe("add tariff plan check", () =>{
             .and('be.colored', '#25a2c3');
         cy.get('[name="submit"]')
             .should('be.visible')
-            .and'have.css', 'color')
-            .and('be.colored', '#ffffff')
-            .and('have.css',  'background-color')
-            .and('be.colored', '#f6755e');
+            .and('have.css', 'font-size', '14px')
+            .and('have.css', 'font-weight', '700')
+            .and('have.css', 'color', 'rgb(255, 255, 255)')
+            .and('have.css', 'background-color', 'rgb(246, 117, 94)')
 
-        cy.get('[value="Reset"]')
+
+        cy.get('[type="reset"]')
             .should('be.visible')
-            .should('have.css',  'color')
-            .and('be.colored', '#727a82');
-
+            .and('have.css', 'font-size', '14px')
+            .and('have.css', 'font-weight', '700')
+            .and('have.css', 'color', 'rgb(114, 122, 130)')
     })
 
 

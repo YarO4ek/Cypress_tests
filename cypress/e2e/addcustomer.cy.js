@@ -11,14 +11,14 @@ describe("check add customer", () => {
     })
 
 
-    it.skip("header", () => {
+    it("header", () => {
 
         cy.header('Testing', 'https://www.guru99.com/software-testing.html')
         cy.header('Selenium', 'https://www.guru99.com/selenium-tutorial.html')
         cy.header('Live Project', 'https://www.guru99.com/live-projects.html')
         cy.header('Java', 'https://www.guru99.com/java-tutorial.html')
     })
-     it.skip("Dropdown", () => {
+     it("Dropdown", () => {
 
          cy.log('navigation bar check');
          cy.Dropdawn('Selenium ', 'Flash Movie Demo', '../../test/flash-testing.html', 'https://demo.guru99.com/test/flash-testing.html')
@@ -42,7 +42,7 @@ describe("check add customer", () => {
          cy.Dropdawn('Selenium ', 'Drag and Drop Action', '../../test/drag_drop.html', 'https://demo.guru99.com/test/drag_drop.html')
          cy.Dropdawn('Selenium ', 'Selenium DatePicker Demo', '../../test/', 'https://demo.guru99.com/test/')
      })
-    it.skip("navigation bar", () => {
+    it("navigation bar", () => {
 
         cy.log('navigation bar check');
         cy.getNavi('Insurance Project', 'http://demo.guru99.com/insurance/v1/index.php');
@@ -53,7 +53,7 @@ describe("check add customer", () => {
         cy.getNavi('Payment Gateway Project', 'http://demo.guru99.com/payment-gateway/index.php')
         cy.getNavi('New Tours', 'http://demo.guru99.com/test/newtours/')
     })
-    it.skip("Dropdown SEO", () => {
+    it("Dropdown SEO", () => {
 
         cy.log('navigation bar check');
          cy.Dropdawn('SEO ', 'Page-1','http://demo.guru99.com/seo/page-1.html')
@@ -65,7 +65,7 @@ describe("check add customer", () => {
 
      })
 
-    it.skip("+ Case with done",()=> {
+    it("+ Case with done",()=> {
 
         cy.get('[class="left"]')
             .should('be.visible')
@@ -92,7 +92,7 @@ describe("check add customer", () => {
             cy.get('p').should('have.text', 'ACTIVE')
         })
     })
-    it.skip("+ Case with pending",()=> {
+    it("+ Case with pending",()=> {
 
         cy.get('[for="pending"]')
             .should('be.visible')
@@ -115,7 +115,7 @@ describe("check add customer", () => {
             cy.get('p').should('have.text', 'INACTIVE')
         })
     })
-    it.skip("- Case for Reset button",()=> {
+    it("- Case for Reset button",()=> {
 
         cy.get('[for="done"]')
             .should('be.visible')
@@ -127,7 +127,7 @@ describe("check add customer", () => {
         cy.datas('#telephoneno', '8999290290')
         cy.resetbutton('https://demo.guru99.com/telecom/addcustomer.php')
     })
-    it.skip("- Case for radiobutton",()=> {
+    it("- Case for radiobutton",()=> {
         cy.get('[for="done"]')
             .should('be.visible')
             .click()
@@ -140,7 +140,7 @@ describe("check add customer", () => {
             .should('be.visible')
             .click()
     })
-    it.skip('Valid Customer max value', () => {
+    it('Valid Customer max value', () => {
 
         cy.datas('#fname', maxName)
         cy.log('First Name filled');
@@ -195,7 +195,7 @@ describe("check add customer", () => {
             .and('have.css', 'font-size', '15px')
             .and('have.css', 'font-weight', '300')
             .and('have.css', 'color', 'rgb(114, 122, 130)')
-            
+
     })
 
 });

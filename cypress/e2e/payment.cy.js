@@ -4,13 +4,13 @@ describe("payment check", () => {
         cy.visit('https://demo.guru99.com/payment-gateway/index.php')
     })
 
-    it.skip("test first page header", () => {
+    it("test first page header", () => {
 
         cy.paymentheader('Cart', 'https://demo.guru99.com/payment-gateway/purchasetoy.php')
         cy.paymentheader('Check Credit Card Limit','https://demo.guru99.com/payment-gateway/check_credit_balance.php')
         cy.paymentheader('Generate Card Number','https://demo.guru99.com/payment-gateway/cardnumber.php')
     })
-    it.skip("test first page ", () => {
+    it("test first page ", () => {
 
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
@@ -18,7 +18,7 @@ describe("payment check", () => {
             .click()
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
-    it.skip(" + test payment process ", () => {
+    it(" + test payment process ", () => {
 
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
@@ -34,7 +34,7 @@ describe("payment check", () => {
             .should('be.visible')
             .click()
     })
-    it.skip(" - test payment process ", () => {
+    it(" - test payment process ", () => {
         cy.log('open payment page');
         cy.visit('https://demo.guru99.com/payment-gateway/process_purchasetoy.php')
         cy.log('open payment page')
@@ -48,7 +48,7 @@ describe("payment check", () => {
             .click()
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
-    it.skip("  test payment process to american express ", () => {
+    it("  test payment process to american express ", () => {
         cy.log('open payment page');
         cy.visit('https://demo.guru99.com/payment-gateway/process_purchasetoy.php')
         cy.log('open payment page')
@@ -62,7 +62,7 @@ describe("payment check", () => {
             .click()
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/genearte_orderid.php?uid=174160');
     })
-    it.skip(" - test  CVV with 4 numbers", () => {
+    it(" - test  CVV with 4 numbers", () => {
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
             .should('be.visible')
@@ -78,7 +78,7 @@ describe("payment check", () => {
             .should('be.visible')
             .click()
     })
-    it.skip(" - test without CVV ", () => {
+    it(" - test without CVV ", () => {
 
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
@@ -96,7 +96,7 @@ describe("payment check", () => {
             .click()
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/genearte_orderid.php?uid=174160');
     })
-    it.skip(" - test with all empty fields ", () => {
+    it(" - test with all empty fields ", () => {
 
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
@@ -117,7 +117,7 @@ describe("payment check", () => {
         cy.on('window:confirm', () => true);
         cy.url().should('eq' ,'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
-    it.skip(" - test  add fields letters ", () => {
+    it(" - test  add fields letters ", () => {
 
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
@@ -138,7 +138,7 @@ describe("payment check", () => {
             .click()
         cy.url().should('eq' ,'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
-    it.skip("test payment successful page ", () => {
+    it("test payment successful page ", () => {
 
         cy.get('[name="quantity"]').select('2');
         cy.get('[value="Buy Now"]')
@@ -159,7 +159,7 @@ describe("payment check", () => {
         cy.url().should('eq' ,'https://demo.guru99.com/payment-gateway/purchasetoy.php');
 
         })
-    it.skip("test quantity",() =>{
+    it("test quantity",() =>{
         cy.get('[name="quantity"]').select('1');
         cy.wait(1000);
         cy.get('[name="quantity"]').select('2');
@@ -179,7 +179,7 @@ describe("payment check", () => {
         cy.get('[name="quantity"]').select('9');
         cy.wait(1000);
     })
-    it.skip("test check card year and mont",() =>{
+    it("test check card year and mont",() =>{
         cy.get('[value="Buy Now"]')
             .click()
         cy.get('#month').select('Month');
@@ -224,7 +224,7 @@ describe("payment check", () => {
 
 
     })
-    it.skip('test nav ', () =>{
+    it('test nav ', () =>{
         cy.get('.inner > .logo')
             .should('be.visible')
             .and('have.css',  'color','rgb(255, 255, 255)')
@@ -252,7 +252,7 @@ describe("payment check", () => {
             .and('have.css', 'font-size', '16px')
 
     })
-    it.skip('test header',() =>{
+    it('test header',() =>{
         cy.get('h2')
             .should('be.visible')
             .and('have.css', 'font-weight', '300')
@@ -262,7 +262,7 @@ describe("payment check", () => {
             .and('have.css', 'margin', '0px 0px 22px')
             .contains('Mother Elephant With Babies Soft Toy');
     })
-    it.skip('check img',() =>{
+    it('check img',() =>{
         cy.get('p > img')
             .should('be.visible')
             .and('have.attr', 'src', 'images/Toy.jpg')
@@ -272,7 +272,7 @@ describe("payment check", () => {
             .and('have.css', 'padding', '0px');
 
     })
-    it.skip('check text', () =>{
+    it('check text', () =>{
         cy.get('[class="6u 12u$(small)"] > p' )
             .should('be.visible')
             .and('have.css', 'margin', '0px 0px 10px')
@@ -280,7 +280,7 @@ describe("payment check", () => {
 
 
     })
-    it.skip('check info about elephant',() =>{
+    it('check info about elephant',() =>{
         cy.get(':nth-child(2) > ul > :nth-child(1)')
             .contains('Brand : ToysMart')
             .should('be.visible')
