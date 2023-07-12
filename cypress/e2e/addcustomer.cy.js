@@ -1,7 +1,7 @@
-let maxName = 'oamPJUEhdZQwkldZSBkwtuNdLEqfZvGMgAUHLEPfMWGUBORQXT';
-let maxAddress = 'echCqdombkpeqEKNvSOgngKqhUzfMxMWfwwMrUsdldkmhJuIPfPuoOysCYVxBuXldKaIrAGzhPDWTShMhRhKuNJcjKhagVCWvQct';
-let maxEmail = 'EnPfVYOHOMOSWXJOKTdtivLmYGqVbNpHciSkXQJEzFbBsaBgZMnCNIthMChaURwUxqXJmJicjNSAJmOSOQIYEybvfkqWfkctTlEVkoXcrwSxBDKffKAVlwcwVoRwQwtoLCTMHfnaBIVcIBYMnOYpZwOehBksSRiKtCHWmUBednMuHHeqKMigtwHONtsiVaZtKDprAARBDTlkHkTvsvYyHxWYoJyEmYyoVhwPtOlFqqvZZoUkIjlrFbFKeMehhVtcRdZUTKBacdTiVtKhzjkohVFKgiBuymTOEXASJBNWnLpAwMSmEIEBhINz@gmail.com';
-let maxTel = '123456789112';
+let maxName = 'hgtftgfyhbghbgyhbghbghbghbghbghbhbhnbbhghbgvbvgbgv';
+let maxAddress = 'jikmjkmjkmjkjkmjnkmgnjfkmkrfmnjkfmgnjkkrkmfhjjjjjjjjjjjjjjjjnjkrjhurjikjgujrighurjihjrirumnjkmnjkmnj';
+let maxEmail = 'grgininginrgnrnjgnjrngjnrjngjrnjgnjrgjrjgjrngnrkgkrnkgnrkgnkrngknrkgkrgnkrkgnrkgnkrnkgnrkngkrngkirwgiowogookpefoeofoekofepfpepfpefpepfpeighjhghjknbhjkdjvnjdkMdnjfdkmsldsvfjdskmdnvfhdefefefesmbfhjdnfhuejdnfhruejinfhruejinhturjiekjnrhuriekjdfhjdkmnfjdnmfjdnfhjdnfjdkmnfjdknfjdklmnfpepfpepfepfpefgjoeofjoefokefkoclvmsvkskbllv,enrnrgknrkngkrnkgnkrngknrkgnkrngkrngkmlmlemkrkkrkbkr@gmail.com';
+let maxTel = '123456789999';
 
 describe("check add customer", () => {
     beforeEach(() =>{
@@ -63,7 +63,6 @@ describe("check add customer", () => {
          cy.Dropdawn('SEO ', 'Page-6','http://demo.guru99.com/seo/page-6.html')
 
      })
-
     it("+ Case with done",()=> {
 
         cy.get('[class="left"]')

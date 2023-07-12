@@ -173,32 +173,41 @@ describe("add tariff plan check", () =>{
         cy.log("header color")
         cy.get('[id="navbar-brand-centered"]')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#767d85');
+            .should('have.css', 'color')
+            .and('be.colored', '#767d85');
         cy.log("header words color")
         cy.get('[class="dropdown-toggle"]')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="dropdown"]').contains('Insurance Project')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="dropdown"]').contains('Agile Project')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="dropdown"]').contains('Bank Project')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="dropdown"]').contains('Security Project')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="dropdown"]').contains('Telecom Project')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="dropdown"]').contains('Payment Gateway Project')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="dropdown"]').contains('New Tours')
             .should('be.visible')
-            .should('have.css', 'color').and('be.colored', '#fff');
+            .should('have.css', 'color')
+            .and('be.colored', '#fff');
         cy.get('[class="align-center"]').contains('Add Tariff Plans')
             .should('be.visible')
             .should('have.css', 'color')
