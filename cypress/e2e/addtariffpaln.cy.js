@@ -95,7 +95,6 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-
     it("check textbox with special characters", () =>{
 
         cy.datas('#rental1', '-')
@@ -136,7 +135,6 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-
     it('Blank fields and alert', () => {
 
         cy.get('input[type="submit"]')
@@ -146,8 +144,6 @@ describe("add tariff plan check", () =>{
             expect(txt).to.equal('please fill all fields Correct Value');
         })
     })
-
-
     it ('check text fields  and  correct placeholder', () => {
         cy.get('#rental1')
             .should('have.attr', 'placeholder', 'Monthly Rental')
@@ -203,12 +199,6 @@ describe("add tariff plan check", () =>{
         cy.get('[class="dropdown"]').contains('New Tours')
             .should('be.visible')
             .should('have.css', 'color').and('be.colored', '#fff');
-
-        // cy.log("logo color")
-        // cy.get('.left > .logo').contains('Guru99 telecom')
-        //     .should('be.visible')
-        //     .should('be.colored', '#f6755e');
-
         cy.get('[class="align-center"]').contains('Add Tariff Plans')
             .should('be.visible')
             .should('have.css', 'color')
@@ -255,8 +245,4 @@ describe("add tariff plan check", () =>{
             .and('have.css', 'font-weight', '700')
             .and('have.css', 'color', 'rgb(114, 122, 130)')
     })
-
-
-
-
 });

@@ -10,7 +10,6 @@ describe("check add customer", () => {
 
     })
 
-
     it("header", () => {
 
         cy.header('Testing', 'https://www.guru99.com/software-testing.html')

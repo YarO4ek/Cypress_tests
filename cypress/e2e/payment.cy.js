@@ -20,7 +20,7 @@ describe("payment check", () => {
     })
     it(" + test payment process ", () => {
 
-        cy.get('[name="quantity"]').select('2');
+        cy.get('[name="quantity"]').select('2')
         cy.get('[value="Buy Now"]')
             .should('be.visible')
             .click()
@@ -63,7 +63,8 @@ describe("payment check", () => {
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/genearte_orderid.php?uid=174160');
     })
     it(" - test  CVV with 4 numbers", () => {
-        cy.get('[name="quantity"]').select('2');
+        cy.get('[name="quantity"]')
+            .select('2')
         cy.get('[value="Buy Now"]')
             .should('be.visible')
             .click()
@@ -80,7 +81,7 @@ describe("payment check", () => {
     })
     it(" - test without CVV ", () => {
 
-        cy.get('[name="quantity"]').select('2');
+        cy.get('[name="quantity"]').select('2')
         cy.get('[value="Buy Now"]')
             .should('be.visible')
             .click()
@@ -140,7 +141,7 @@ describe("payment check", () => {
     })
     it("test payment successful page ", () => {
 
-        cy.get('[name="quantity"]').select('2');
+        cy.get('[name="quantity"]').select('2')
         cy.get('[value="Buy Now"]')
             .should('be.visible')
             .click()
@@ -331,26 +332,19 @@ describe("payment check", () => {
             .and('have.css', 'margin-top', '10px')
             .and('have.css', 'margin-bottom', '10px');
 
-        cy.get('select')
-            .should('have.length.above', 0)
-            .and('have.css', 'font-size', '19.2px')
-            .and('have.css', 'color', 'rgb(255, 255, 255)')
-            .and('have.css', 'height', '52.796875px')
-            .and('have.css', 'background', 'rgb(108, 192, 145) none repeat scroll 0% 0% / auto padding-box border-box')
-            .and('have.css', 'border-radius', '10px')
-            .and('have.css', 'border', '2px solid rgb(141, 204, 169)')
-            .and('have.css', 'padding', '0px 19.2px');
-
-        cy.get('.button')
+        cy.get('[name="submit"]')
             .should('be.visible')
-            .and('have.attr', 'value', 'Buy Now')
-            .and('have.css', 'font-size', '19.2px')
-            .and('have.css', 'background-color', 'rgb(108, 192, 145)')
+            .and('have.css', 'font-size', '14px')
+            .and('have.css', 'font-weight', '700')
             .and('have.css', 'color', 'rgb(255, 255, 255)')
-            .and('have.css', 'border-radius', '30px')
+            .and('have.css', 'background-color', 'rgb(246, 117, 94)')
+
+
+        cy.get('[type="reset"]')
+            .should('be.visible')
+            .and('have.css', 'font-size', '14px')
+            .and('have.css', 'font-weight', '700')
+            .and('have.css', 'color', 'rgb(114, 122, 130)')
 
     })
-
-
-
 });
