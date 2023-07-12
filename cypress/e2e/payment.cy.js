@@ -281,27 +281,33 @@ describe("payment check", () => {
 
     })
     it.skip('check info about elephant',() =>{
-        cy.get(':nth-child(2) > ul > :nth-child(1)').contains('Brand : ToysMart')
+        cy.get(':nth-child(2) > ul > :nth-child(1)')
+            .contains('Brand : ToysMart')
             .should('be.visible')
             .and('have.css', 'padding-left', '8px');
 
-        cy.get(':nth-child(2) > ul > :nth-child(2)').contains('Age group : 2 Years to 4 Years')
+        cy.get(':nth-child(2) > ul > :nth-child(2)')
+            .contains('Age group : 2 Years to 4 Years')
             .should('be.visible')
             .and('have.css', 'padding-left', '8px');
 
-        cy.get(':nth-child(2) > ul > :nth-child(3)').contains('Color : Grey')
+        cy.get(':nth-child(2) > ul > :nth-child(3)')
+            .contains('Color : Grey')
             .should('be.visible')
             .and('have.css', 'padding-left', '8px');
 
-        cy.get(':nth-child(2) > ul > :nth-child(4)').contains('Washable : Yes')
+        cy.get(':nth-child(2) > ul > :nth-child(4)')
+            .contains('Washable : Yes')
             .should('be.visible')
             .and('have.css', 'padding-left', '8px');
 
-        cy.get(':nth-child(2) > ul > :nth-child(5)').contains('Key Feature 1 : Soft and Cuddly Filling')
+        cy.get(':nth-child(2) > ul > :nth-child(5)')
+            .contains('Key Feature 1 : Soft and Cuddly Filling')
             .should('be.visible')
             .and('have.css', 'padding-left', '8px');
 
-        cy.get(':nth-child(2) > ul > :nth-child(6)').contains('SUPC: SDL318766798')
+        cy.get(':nth-child(2) > ul > :nth-child(6)')
+            .contains('SUPC: SDL318766798')
             .should('be.visible')
             .and('have.css', 'padding-left', '8px')
         cy.get('h3').contains('Price: $20')

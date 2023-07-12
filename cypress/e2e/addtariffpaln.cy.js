@@ -244,12 +244,11 @@ describe("add tariff plan check", () =>{
             .and('be.colored', '#25a2c3');
         cy.get('[name="submit"]')
             .should('be.visible')
-            .should('have.css', 'color')
-            .and('be.colored', '#ffffff',);
-        cy.get('[name="submit"]')
-            .should('be.visible')
-            .should('have.css',  'background-color')
+            .and'have.css', 'color')
+            .and('be.colored', '#ffffff')
+            .and('have.css',  'background-color')
             .and('be.colored', '#f6755e');
+
         cy.get('[value="Reset"]')
             .should('be.visible')
             .should('have.css',  'color')

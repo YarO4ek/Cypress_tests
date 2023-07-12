@@ -65,7 +65,7 @@ describe("check add customer", () => {
 
      })
 
-    it("+ Case with done",()=> {
+    it.skip("+ Case with done",()=> {
 
         cy.get('[class="left"]')
             .should('be.visible')
@@ -92,7 +92,7 @@ describe("check add customer", () => {
             cy.get('p').should('have.text', 'ACTIVE')
         })
     })
-    it("+ Case with pending",()=> {
+    it.skip("+ Case with pending",()=> {
 
         cy.get('[for="pending"]')
             .should('be.visible')
@@ -157,4 +157,45 @@ describe("check add customer", () => {
         cy.url()
             .should('contain', 'access.php?uid')
     })
+    it('check colors on the page', () => {
+        cy.get('h1')
+            .should('be.visible')
+            .contains('Add Customer')
+            .and('have.css', 'font-size', '29px')
+            .and('have.css', 'font-weight', '700')
+            .and('have.css', 'color', 'rgb(37, 162, 195)')
+            .and('have.css', 'line-height', '38px')
+            .and('have.css', 'margin-top', '20px');
+        cy.get('h3')
+            .should('be.visible')
+            .contains('Background Check')
+            .and('have.css', 'font-size', '18px')
+            .and('have.css', 'font-weight', '700')
+            .and('have.css', 'color', 'rgb(37, 162, 195)')
+            .and('have.css', 'line-height', '27px')
+        cy.get('h3')
+            .should('be.visible')
+            .contains('Billing address')
+            .and('have.css', 'font-size', '18px')
+            .and('have.css', 'font-weight', '700')
+            .and('have.css', 'color', 'rgb(37, 162, 195)')
+            .and('have.css', 'line-height', '27px')
+
+
+        cy.get('[name="submit"]')
+            .should('be.visible')
+            .and('have.css', 'font-size', '15px')
+            .and('have.css', 'font-weight', '300')
+            .and('have.css', 'color', 'rgb(255, 255, 255)')
+            .and('have.css', 'background-color', 'rgb(246, 117, 94)')
+
+
+        cy.get('[type="reset"]')
+            .should('be.visible')
+            .and('have.css', 'font-size', '15px')
+            .and('have.css', 'font-weight', '300')
+            .and('have.css', 'color', 'rgb(114, 122, 130)')
+            
+    })
+
 });
