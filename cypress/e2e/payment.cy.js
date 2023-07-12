@@ -254,8 +254,8 @@ describe("payment check", () => {
     })
     it('test header',() =>{
         cy.get('h2')
+            .contains('Mother Elephant With Babies Soft Toy')
             .should('be.visible')
-            .contains('Mother Elephant With Babies Soft Toy');
             .and('have.css', 'font-weight', '300')
             .and('have.css', 'line-height', '66px')
             .and('have.css', 'color', 'rgb(85, 85, 85)')
@@ -318,8 +318,8 @@ describe("payment check", () => {
     })
     it('check elements', () =>{
         cy.get('h4')
-            .should('be.visible')
             .contains('Quantity:')
+            .should('be.visible')
             .and('have.css', 'font-size', '24px')
             .and('have.css', 'font-weight', '400')
             .and('have.css', 'color', 'rgb(85, 85, 85)')
