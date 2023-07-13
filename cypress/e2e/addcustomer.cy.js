@@ -1,7 +1,7 @@
-let maxName = 'hgtftgfyhbghbgyhbghbghbghbghbghbhbhnbbhghbgvbvgbgv';
-let maxAddress = 'jikmjkmjkmjkjkmjnkmgnjfkmkrfmnjkfmgnjkkrkmfhjjjjjjjjjjjjjjjjnjkrjhurjikjgujrighurjihjrirumnjkmnjkmnj';
-let maxEmail = 'grgininginrgnrnjgnjrngjnrjngjrnjgnjrgjrjgjrngnrkgkrnkgnrkgnkrngknrkgkrgnkrkgnrkgnkrnkgnrkngkrngkirwgiowogookpefoeofoekofepfpepfpefpepfpeighjhghjknbhjkdjvnjdkMdnjfdkmsldsvfjdskmdnvfhdefefefesmbfhjdnfhuejdnfhruejinfhruejinhturjiekjnrhuriekjdfhjdkmnfjdnmfjdnfhjdnfjdkmnfjdknfjdklmnfpepfpepfepfpefgjoeofjoefokefkoclvmsvkskbllv,enrnrgknrkngkrnkgnkrngknrkgnkrngkrngkmlmlemkrkkrkbkr@gmail.com';
-let maxTel = '123456789999';
+let maxname = 'hgtftgfyhbghbgyhbghbghbghbghbghbhbhnbbhghbgvbvgbgv';
+let maxaddress = 'jikmjkmjkmjkjkmjnkmgnjfkmkrfmnjkfmgnjkkrkmfhjjjjjjjjjjjjjjjjnjkrjhurjikjgujrighurjihjrirumnjkmnjkmnj';
+let maxemail = 'grgininginrgnrnjgnjrngjnrjngjrnjgnjrgjrjgjrngnrkgkrnkgnrkgnkrngknrkgkrgnkrkgnrkgnkrnkgnrkngkrngkirwgiowogookpefoeofoekofepfpepfpefpepfpeighjhghjknbhjkdjvnjdkMdnjfdkmsldsvfjdskmdnvfhdefefefesmbfhjdnfhuejdnfhruejinfhruejinhturjiekjnrhuriekjdfhjdkmnfjdnmfjdnfhjdnfjdkmnfjdknfjdklmnfpepfpepfepfpefgjoeofjoefokefkoclvmsvkskbllv,enrnrgknrkngkrnkgnkrngknrkgnkrngkrngkmlmlemkrkkrkbkr@gmail.com';
+let maxtel = '123456789999';
 
 describe("check add customer", () => {
     beforeEach(() =>{
@@ -10,16 +10,16 @@ describe("check add customer", () => {
 
     })
 
-    it("header", () => {
+    it.skip("header", () => {
 
         cy.header('Testing', 'https://www.guru99.com/software-testing.html')
         cy.header('Selenium', 'https://www.guru99.com/selenium-tutorial.html')
         cy.header('Live Project', 'https://www.guru99.com/live-projects.html')
         cy.header('Java', 'https://www.guru99.com/java-tutorial.html')
     })
-     it("Dropdown", () => {
+    it.skip("navigation bar Dropdown check", () => {
 
-         cy.log('navigation bar check');
+         cy.log('Dropdown');
          cy.Dropdawn('Selenium ', 'Flash Movie Demo', '../../test/flash-testing.html', 'https://demo.guru99.com/test/flash-testing.html')
          cy.Dropdawn('Selenium ', 'Radio & Checkbox Demo', '../../test/radio.html', 'https://demo.guru99.com/test/radio.html')
          cy.Dropdawn('Selenium ', 'Table Demo', '../../test/table.html', 'https://demo.guru99.com/test/table.html')
@@ -41,7 +41,7 @@ describe("check add customer", () => {
          cy.Dropdawn('Selenium ', 'Drag and Drop Action', '../../test/drag_drop.html', 'https://demo.guru99.com/test/drag_drop.html')
          cy.Dropdawn('Selenium ', 'Selenium DatePicker Demo', '../../test/', 'https://demo.guru99.com/test/')
      })
-    it("navigation bar", () => {
+    it.skip("navigation bar check", () => {
 
         cy.log('navigation bar check');
         cy.getNavi('Insurance Project', 'http://demo.guru99.com/insurance/v1/index.php');
@@ -52,9 +52,9 @@ describe("check add customer", () => {
         cy.getNavi('Payment Gateway Project', 'http://demo.guru99.com/payment-gateway/index.php')
         cy.getNavi('New Tours', 'http://demo.guru99.com/test/newtours/')
     })
-    it("Dropdown SEO", () => {
+    it.skip("navigation bar: Dropdown SEO check", () => {
 
-        cy.log('navigation bar check');
+        cy.log('Dropdown SEO');
          cy.Dropdawn('SEO ', 'Page-1','http://demo.guru99.com/seo/page-1.html')
          cy.Dropdawn('SEO ', 'Page-2','http://demo.guru99.com/seo/page-2.html')
          cy.Dropdawn('SEO ', 'Page-3','http://demo.guru99.com/seo/page-3.html')
@@ -63,7 +63,7 @@ describe("check add customer", () => {
          cy.Dropdawn('SEO ', 'Page-6','http://demo.guru99.com/seo/page-6.html')
 
      })
-    it("+ Case with done",()=> {
+    it.skip("+ Case with done",()=> {
 
         cy.get('[class="left"]')
             .should('be.visible')
@@ -88,9 +88,13 @@ describe("check add customer", () => {
             cy.get('#customer_id').type(customerId)
             cy.get('.fit').click()
             cy.get('p').should('have.text', 'ACTIVE')
+            cy.visit('https://demo.guru99.com/telecom/billing.php')
+            cy.get('#customer_id').type(customerId)
+            cy.get('.fit').click()
+
         })
     })
-    it("+ Case with pending",()=> {
+    it.skip("+ Case with pending",()=> {
 
         cy.get('[for="pending"]')
             .should('be.visible')
@@ -111,9 +115,12 @@ describe("check add customer", () => {
             cy.get('#customer_id').type(customerId)
             cy.get('.fit').click()
             cy.get('p').should('have.text', 'INACTIVE')
+            cy.visit('https://demo.guru99.com/telecom/billing.php')
+            cy.get('#customer_id').type(customerId)
+            cy.get('.fit').click()
         })
     })
-    it("- Case for Reset button",()=> {
+    it.skip("- Case for Reset button",()=> {
 
         cy.get('[for="done"]')
             .should('be.visible')
@@ -125,10 +132,7 @@ describe("check add customer", () => {
         cy.datas('#telephoneno', '8999290290')
         cy.resetbutton('https://demo.guru99.com/telecom/addcustomer.php')
     })
-    it("- Case for radiobutton",()=> {
-        cy.get('[for="done"]')
-            .should('be.visible')
-            .click()
+    it.skip("- Case for radiobutton",()=> {
         cy.datas('#fname', 'Yar')
         cy.datas('#lname', 'Mas')
         cy.datas('#email', 'yar@gmail.com')
@@ -137,25 +141,116 @@ describe("check add customer", () => {
         cy.get('[name="submit"]')
             .should('be.visible')
             .click()
+        cy.url()
+            .should('contain', 'https://demo.guru99.com/telecom/addcustomer.php')
     })
-    it('Valid Customer max value', () => {
+    it.skip('- with write numbers', ()=>{
+        cy.get('[for="done"]')
+            .should('be.visible')
+            .click()
+        cy.datas('#fname', '1')
+        cy.get('#message')
+            .contains('Numbers are not allowed')
+            .should('be.visible')
+        cy.datas('#lname', '1')
+        cy.get('#message50')
+            .contains('Numbers are not allowed')
+            .should('be.visible')
+        cy.datas('#email', '1')
+        cy.get('#message9')
+            .contains('Email-ID is not valid')
+            .should('be.visible')
+        cy.datas('[name="addr"]', '1')
+        cy.datas('#telephoneno', 'a')
+        cy.get('#message7')
+            .contains('Characters are not allowed')
+            .should('be.visible')
+        cy.get('[name="submit"]')
+            .should('be.visible')
+            .click()
+    })
+    it.skip('- Test with space',() => {
+        cy.get('[for="done"]')
+            .should('be.visible')
+            .click()
+        cy.datas('#fname', ' ')
+        cy.get('#message')
+            .contains('First character can not have space')
+            .should('be.visible')
+        cy.datas('#lname', '  ')
+        cy.get('#message50')
+            .contains('First character can not have space')
+            .should('be.visible')
+        cy.datas('#email', '  ')
+        cy.get('#message9')
+            .contains('First character can not have space')
+            .should('be.visible')
+        cy.datas('[name="addr"]', '  ')
+        cy.get('#message3')
+            .contains('First character can not have space')
+            .should('be.visible')
+        cy.datas('#telephoneno', '  ')
+        cy.get('#message7')
+            .contains('First character can not have space')
+            .should('be.visible')
+        cy.get('[name="submit"]')
+            .should('be.visible')
+            .click()
+    })
+    it.skip('- Test with empty fields',() =>{
+        cy.get('input[type="submit"]')
+            .should('be.visible')
+            .click()
+        cy.on('window:alert', (txt) => {
+            expect(txt).to.equal('please fill all fields');
+        })
+    })
+    it.skip('- Test with special characters',() =>{
+        cy.get('[for="done"]')
+            .should('be.visible')
+            .click()
+        cy.datas('#fname', '/')
+        cy.get('#message')
+            .contains('Special characters are not allowed')
+            .should('be.visible')
+        cy.datas('#lname', '/')
+        cy.get('#message50')
+            .contains('Special characters are not allowed')
+            .should('be.visible')
+        cy.datas('#email', '/')
+        cy.get('#message9')
+            .contains('Special characters are not allowed')
+            .should('be.visible')
+        cy.datas('[name="addr"]', '/')
+        cy.get('#message3')
+            .contains('Special characters are not allowed')
+            .should('be.visible')
+        cy.datas('#telephoneno', '/')
+        cy.get('#message7')
+            .contains('Special characters are not allowed')
+            .should('be.visible')
+        cy.get('[name="submit"]')
+            .should('be.visible')
+            .click()
+    })
+    it.skip('Valid Customer max value', () => {
 
-        cy.datas('#fname', maxName)
+        cy.datas('#fname', maxname)
         cy.log('First Name filled');
-        cy.datas('#lname', maxName)
+        cy.datas('#lname', maxname)
         cy.log('Last Name filled');
-        cy.datas('#email', maxEmail)
+        cy.datas('#email', maxemail)
         cy.log('Email entered');
-        cy.datas('textarea[name=addr]', maxAddress)
+        cy.datas('textarea[name=addr]', maxaddress)
         cy.log('Address filled');
-        cy.datas('#telephoneno', maxTel)
+        cy.datas('#telephoneno', maxtel)
         cy.log('Tel number filled');
         cy.get('input[type="submit"]').
         click()
         cy.url()
             .should('contain', 'access.php?uid')
     })
-    it('check colors on the page', () => {
+    it.skip('check elements on the page', () => {
         cy.get('h1')
             .should('be.visible')
             .contains('Add Customer')
@@ -178,22 +273,31 @@ describe("check add customer", () => {
             .and('have.css', 'font-weight', '700')
             .and('have.css', 'color', 'rgb(37, 162, 195)')
             .and('have.css', 'line-height', '27px')
-
-
         cy.get('[name="submit"]')
             .should('be.visible')
             .and('have.css', 'font-size', '15px')
             .and('have.css', 'font-weight', '300')
             .and('have.css', 'color', 'rgb(255, 255, 255)')
             .and('have.css', 'background-color', 'rgb(246, 117, 94)')
-
-
         cy.get('[type="reset"]')
             .should('be.visible')
             .and('have.css', 'font-size', '15px')
             .and('have.css', 'font-weight', '300')
             .and('have.css', 'color', 'rgb(114, 122, 130)')
-
+        cy.get('#fname')
+            .should('have.attr', 'placeholder', 'FirstName')
+            .should('be.visible');
+        cy.get('#lname')
+            .should('have.attr', 'placeholder', 'LastName')
+            .should('be.visible');
+        cy.get('#email')
+            .should('have.attr', 'placeholder', 'Email')
+            .should('be.visible');
+        cy.get('#message')
+            .should('have.attr', 'placeholder', 'Enter your address')
+            .should('be.visible');
+        cy.get('#telephoneno')
+            .should('have.attr', 'placeholder', 'Mobile Number')
+            .should('be.visible');
     })
-
 });

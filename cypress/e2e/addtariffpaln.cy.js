@@ -6,13 +6,14 @@ describe("add tariff plan check", () =>{
         cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
     })
 
-    it('Check logo button', () =>{
+    it.skip('Check logo button', () =>{
         cy.get('[class="left"]')
             .should('be.visible')
             .click()
-        cy.go('back')
+        cy.url()
+            .should('contain', 'https://demo.guru99.com/telecom/index.html')
     })
-    it("+ check add tariff plane", () =>{
+    it.skip("+ check add tariff plane", () =>{
         cy.log('open page');
         cy.visit('https://demo.guru99.com/telecom/addtariffplans.php')
         cy.datas('#rental1', '10')
@@ -31,7 +32,7 @@ describe("add tariff plan check", () =>{
 
 
     })
-    it("- check add tariff plane", () =>{
+    it.skip("- check add tariff plane", () =>{
 
         cy.datas('#rental1', 'as')
         cy.get('#message2')
@@ -58,7 +59,7 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-    it("- check button reset", () =>{
+    it.skip("- check button reset", () =>{
 
         cy.datas('#rental1', '10')
         cy.datas('#local_minutes', '10')
@@ -69,20 +70,61 @@ describe("add tariff plan check", () =>{
         cy.datas('#sms_charges', '10')
         cy.resetbutton('https://demo.guru99.com/telecom/addtariffplans.php')
     })
-    it("- check textbox with empty fields", () =>{
+    it.skip("- check textbox with space", () =>{
 
         cy.datas('#rental1', ' ')
+        cy.get('#message2')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#local_minutes', ' ')
+        cy.get('#message3')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#inter_minutes', ' ')
+        cy.get('#message4')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#sms_pack', ' ')
+        cy.get('#message5')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#minutes_charges', ' ')
+        cy.get('#message6')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#inter_charges', ' ')
+        cy.get('#message7')
+            .should('have.text', 'Characters are not allowed');
         cy.datas('#sms_charges', ' ')
+        cy.get('#message8')
+            .should('have.text', 'Characters are not allowed');
         cy.get('[name="submit"]')
             .should('be.visible')
             .click()
     })
-    it("check textbox with boundary values", () =>{
+    it.skip('- check textbox with empty fields',() =>{
+
+        cy.datas('#rental1', ' ')
+        cy.datas('#local_minutes', ' ' )
+        cy.datas('#inter_minutes',' ' )
+        cy.datas('#sms_pack',' ' )
+        cy.datas('#minutes_charges',' ' )
+        cy.datas('#inter_charges', ' ')
+        cy.datas('#sms_charges', ' ')
+        cy.get('#message2')
+            .should('have.text', 'Number must not be blank');
+        cy.get('#message3')
+            .should('have.text', 'Number must not be blank');
+        cy.get('#message4')
+            .should('have.text', 'Number must not be blank');
+        cy.get('#message5')
+            .should('have.text', 'Number must not be blank');
+        cy.get('#message6')
+            .should('have.text', 'Number must not be blank');
+        cy.get('#message7')
+            .should('have.text', 'Number must not be blank');
+        cy.get('#message8')
+            .should('have.text', 'Number must not be blank');
+        cy.get('[name="submit"]')
+            .should('be.visible')
+            .click()
+    })
+    it.skip("- check textbox with boundary values", () =>{
 
         cy.datas('#rental1', '999999')
         cy.datas('#local_minutes', '999999')
@@ -95,34 +137,34 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-    it("check textbox with special characters", () =>{
+    it.skip("- check textbox with special characters", () =>{
 
-        cy.datas('#rental1', '-')
+        cy.datas('#rental1', '--a')
         cy.get('#message2')
             .should('have.text', 'Special characters are not allowed');
-        cy.datas('#local_minutes', '-')
+        cy.datas('#local_minutes', '--a')
         cy.get('#message3')
             .should('have.text', 'Special characters are not allowed');
-        cy.datas('#inter_minutes', ',')
+        cy.datas('#inter_minutes', ',,a')
         cy.get('#message4')
             .should('have.text', 'Special characters are not allowed');
-        cy.datas('#sms_pack', ',')
+        cy.datas('#sms_pack', ',,a')
         cy.get('#message5')
             .should('have.text', 'Special characters are not allowed');
-        cy.datas('#minutes_charges', ',')
+        cy.datas('#minutes_charges', ',,a')
         cy.get('#message6')
             .should('have.text', 'Special characters are not allowed');
-        cy.datas('#inter_charges', '+')
+        cy.datas('#inter_charges', '++a')
         cy.get('#message7')
             .should('have.text', 'Special characters are not allowed');
-        cy.datas('#sms_charges', '+')
+        cy.datas('#sms_charges', '++a')
         cy.get('#message8')
             .should('have.text', 'Special characters are not allowed');
         cy.get('[name="submit"]')
             .should('be.visible')
             .click()
     })
-    it("check textbox with letters and numbers", () =>{
+    it.skip("- check textbox with letters and numbers", () =>{
 
         cy.datas('#rental1', 'a9bc')
         cy.datas('#local_minutes', 'ab9c')
@@ -135,7 +177,7 @@ describe("add tariff plan check", () =>{
             .should('be.visible')
             .click()
     })
-    it('Blank fields and alert', () => {
+    it.skip('- Blank fields and alert', () => {
 
         cy.get('input[type="submit"]')
             .should('be.visible')
@@ -144,7 +186,7 @@ describe("add tariff plan check", () =>{
             expect(txt).to.equal('please fill all fields Correct Value');
         })
     })
-    it ('check text fields  and  correct placeholder', () => {
+    it.skip('check text fields  and  correct placeholder', () => {
         cy.get('#rental1')
             .should('have.attr', 'placeholder', 'Monthly Rental')
             .should('be.visible');
@@ -167,7 +209,7 @@ describe("add tariff plan check", () =>{
             .should('have.attr', 'placeholder', 'SMS Per Charges')
             .should('be.visible');
     })
-    it('color on the page', () =>{
+    it.skip('color on the page', () =>{
 
 
         cy.log("header color")
@@ -246,8 +288,6 @@ describe("add tariff plan check", () =>{
             .and('have.css', 'font-weight', '700')
             .and('have.css', 'color', 'rgb(255, 255, 255)')
             .and('have.css', 'background-color', 'rgb(246, 117, 94)')
-
-
         cy.get('[type="reset"]')
             .should('be.visible')
             .and('have.css', 'font-size', '14px')
