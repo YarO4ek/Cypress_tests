@@ -1,7 +1,5 @@
-let maxname = 'hgtftgfyhbghbgyhbghbghbghbghbghbhbhnbbhghbgvbvgbgv';
-let maxaddress = 'jikmjkmjkmjkjkmjnkmgnjfkmkrfmnjkfmgnjkkrkmfhjjjjjjjjjjjjjjjjnjkrjhurjikjgujrighurjihjrirumnjkmnjkmnj';
-let maxemail = 'grgininginrgnrnjgnjrngjnrjngjrnjgnjrgjrjgjrngnrkgkrnkgnrkgnkrngknrkgkrgnkrkgnrkgnkrnkgnrkngkrngkirwgiowogookpefoeofoekofepfpepfpefpepfpeighjhghjknbhjkdjvnjdkMdnjfdkmsldsvfjdskmdnvfhdefefefesmbfhjdnfhuejdnfhruejinfhruejinhturjiekjnrhuriekjdfhjdkmnfjdnmfjdnfhjdnfjdkmnfjdknfjdklmnfpepfpepfepfpefgjoeofjoefokefkoclvmsvkskbllv,enrnrgknrkngkrnkgnkrngknrkgnkrngkrngkmlmlemkrkkrkbkr@gmail.com';
-let maxtel = '123456789999';
+const data = require ('../fixtures/Customer.json');
+
 
 describe("check add customer", () => {
     beforeEach(() =>{
@@ -144,7 +142,7 @@ describe("check add customer", () => {
         cy.url()
             .should('contain', 'https://demo.guru99.com/telecom/addcustomer.php')
     })
-    it.skip('- with write numbers', ()=>{
+    it.skip('- with write incorrect values', ()=>{
         cy.get('[for="done"]')
             .should('be.visible')
             .click()
@@ -299,5 +297,28 @@ describe("check add customer", () => {
         cy.get('#telephoneno')
             .should('have.attr', 'placeholder', 'Mobile Number')
             .should('be.visible');
+    })
+    it.skip('add active Customer with fixtures', () =>{
+
+        cy.get('[for="done"]')
+            .should('be.visible')
+            .click()
+        cy.customerchik(data.Batman)
+        cy.checkcactiveustomer()
+    })
+
+it.skip('add inactive Customer with fixtures', () =>{
+
+    cy.get('[for="pending"]')
+        .should('be.visible')
+        .click()
+    cy.customerchik(data.Batman)
+    cy.checkcinactiveustomer()
+})
+    it('Check max value', () =>{
+
+
+        cy.bigmax(data["max+1"])
+        cy.checkcinactiveustomer()
     })
 });

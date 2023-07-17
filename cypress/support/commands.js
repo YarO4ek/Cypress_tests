@@ -71,4 +71,63 @@ Cypress.Commands.add('paymentheader',(elementName, pageLink)=>{
         // cy.url().should('eq', pageLink);
         cy.go('back');
     })
+
+});
+Cypress.Commands.add('customerchik', (data) => {
+    cy.get('#fname').type(data.firstname)
+    cy.log('First Name entered')
+    cy.get('#lname').type(data.lastname)
+    cy.log('Last Name entered')
+    cy.get('#email').type(data.email)
+    cy.log('Email entered')
+    cy.get('textarea[name=addr]').type(data.address)
+    cy.log('Address entered')
+    cy.get('#telephoneno').type(data.mobile)
+    cy.log('Phone entered')
+    cy.get('[name="submit"]')
+        .should('be.visible')
+        .click()
+})
+Cypress.Commands.add('checkcactiveustomer',() => {
+    let customerId;
+    cy.location('search').then(path => {
+        customerId = path.split('=')[1];
+        cy.log(customerId)
+        cy.visit('https://demo.guru99.com/telecom/assigntariffplantocustomer.php')
+        cy.get('#customer_id').type(customerId)
+        cy.get('.fit').click()
+        cy.get('p').should('have.text', 'ACTIVE')
+        cy.visit('https://demo.guru99.com/telecom/billing.php')
+        cy.get('#customer_id').type(customerId)
+        cy.get('.fit').click()
+
+    })
+})
+Cypress.Commands.add('checkcinactiveustomer',() => {
+    let customerId;
+    cy.location('search').then(path => {
+        customerId = path.split('=')[1];
+        cy.log(customerId)
+        cy.visit('https://demo.guru99.com/telecom/assigntariffplantocustomer.php')
+        cy.get('#customer_id').type(customerId)
+        cy.get('.fit').click()
+        cy.get('p').should('have.text', 'INACTIVE')
+        cy.visit('https://demo.guru99.com/telecom/billing.php')
+        cy.get('#customer_id').type(customerId)
+        cy.get('.fit').click()
+
+    })
+})
+Cypress.Commands.add('bigmax', (data) => {
+    cy.get('#fname').type(data.maxname)
+    cy.log('First Name entered')
+    cy.get('#lname').type(data.maxaddress)
+    cy.log('Last Name entered')
+    cy.get('#email').type(data.maxemail)
+    cy.log('Email entered')
+    cy.get('#telephoneno').type(data.maxtel)
+    cy.log('Phone entered')
+    cy.get('[name="submit"]')
+        .should('be.visible')
+        .click()
 })

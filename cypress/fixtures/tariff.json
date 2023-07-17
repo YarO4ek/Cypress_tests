@@ -1,0 +1,12 @@
+{
+  "Tariff":
+  {
+    "monthlyRental": "111",
+    "freeLocalMinutes": "111",
+    "freeInternationalMinutes": "111",
+    "freeSMS": "111",
+    "localPerMinutes": "111",
+    "intPerMinutes": "111",
+    "smsPerCharges": "111"
+  }
+}

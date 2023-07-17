@@ -1,0 +1,23 @@
+{
+  "Batman":
+  {
+    "firstname":"Bruce",
+    "lastname": "Wayne",
+    "email": "imnotbatman@gmail.com",
+    "address": "Gotem city the biggest place",
+    "mobile": "+111111111"
+
+  },
+  "max": {
+    "maxnames" : "hgtftgfyhbghbgyhbghbghbghbghbghbhbhnbbhghbgvbvgbgv",
+    "maxaddresss" : "jikmjkmjkmjkjkmjnkmgnjfkmkrfmnjkfmgnjkkrkmfhjjjjjjjjjjjjjjjjnjkrjhurjikjgujrighurjihjrirumnjkmnjkmnj",
+    "maxemails" : "grgininginrgnrnjgnjrngjnrjngjrnjgnjrgjrjgjrngnrkgkrnkgnrkgnkrngknrkgkrgnkrkgnrkgnkrnkgnrkngkrngkirwgiowogookpefoeofoekofepfpepfpefpepfpeighjhghjknbhjkdjvnjdkMdnjfdkmsldsvfjdskmdnvfhdefefefesmbfhjdnfhuejdnfhruejinfhruejinhturjiekjnrhuriekjdfhjdkmnfjdnmfjdnfhjdnfjdkmnfjdknfjdklmnfpepfpepfepfpefgjoeofjoefokefkoclvmsvkskbllv,enrnrgknrkngkrnkgnkrngknrkgnkrngkrngkmlmlemkrkkrkbkr@gmail.com",
+    "maxtels" : "123456789999"
+  },
+  "max+1": {
+    "maxname" : "ahgtftgfyhbghbgyhbghbghbghbghbghbhbhnbbhghbgvbvgbgv",
+    "maxaddress" : "ajikmjkmjkmjkjkmjnkmgnjfkmkrfmnjkfmgnjkkrkmfhjjjjjjjjjjjjjjjjnjkrjhurjikjgujrighurjihjrirumnjkmnjkmnj",
+    "maxemail" : "agrgininginrgnrnjgnjrngjnrjngjrnjgnjrgjrjgjrngnrkgkrnkgnrkgnkrngknrkgkrgnkrkgnrkgnkrnkgnrkngkrngkirwgiowogookpefoeofoekofepfpepfpefpepfpeighjhghjknbhjkdjvnjdkMdnjfdkmsldsvfjdskmdnvfhdefefefesmbfhjdnfhuejdnfhruejinfhruejinhturjiekjnrhuriekjdfhjdkmnfjdnmfjdnfhjdnfjdkmnfjdknfjdklmnfpepfpepfepfpefgjoeofjoefokefkoclvmsvkskbllv,enrnrgknrkngkrnkgnkrngknrkgnkrngkrngkmlmlemkrkkrkbkr@gmail.com",
+    "maxtel" : "1123456789999"
+  }
+}

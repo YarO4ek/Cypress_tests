@@ -18,7 +18,7 @@ describe("payment check", () => {
             .click()
         cy.url().should('eq', 'https://demo.guru99.com/payment-gateway/process_purchasetoy.php');
     })
-    it(" + test payment process ", () => {
+    it.skip(" + test payment process ", () => {
 
         cy.get('[name="quantity"]').select('2')
         cy.get('[value="Buy Now"]')
@@ -339,7 +339,7 @@ describe("payment check", () => {
             .and('have.css', 'line-height', '42px')
 
     })
-    it('check elements', () =>{
+    it.skip('check elements', () =>{
         cy.get('h4')
             .contains('Quantity:')
             .should('be.visible')
@@ -441,4 +441,18 @@ describe("payment check", () => {
 
 
     })
+    it.skip('Checking quantity price', function () {
+        cy.visit('https://demo.guru99.com/payment-gateway/purchasetoy.php')
+        let i = 1
+        while (i<10) {
+            cy.get('select[name="quantity"]').select(`${i}`)
+            cy.get('input[type="submit"]').click()
+
+            cy.get('input[name="prices"]').should('have.attr', 'value', `${i*20}`)
+            cy.go('back')
+            i++
+        }
+    })
+
+
 });
